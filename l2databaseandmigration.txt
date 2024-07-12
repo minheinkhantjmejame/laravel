@@ -1,0 +1,117 @@
+->create table (app > Models)
+
+Method 1(Model / Table)
+php artisan make:model Student -m   // -m par yin migration mar par table build thwar tel 
+
+Method 2 (Table or migration only)
+(i)
+php artisan make:migration create_students_table 
+(ii)
+php artisan make:migration crate_workers_table --create = "workers"(table file name nae talbe name ma tu tae akhar so yin thone lot ya tel)
+
+--------------------------------------------------------------------
+
+=>available column's date type 
+
+$table->id();
+$table->increments("id");
+$table->bitincrements("id");
+
+$table->bitIntegers("id");
+$table->unsignedInteger("id");
+$table->unsignedBigInteger("id");
+
+$table->tinyInteger("status");
+$table->smallInteger("votes");
+
+$table->binary("photo");
+$table->boolean("confirmed");
+
+$table->char("name",30);
+$table->string("name",100);
+$table->text("description");
+$table->tinytext("notes");
+$table->mediumtext("content");
+$table->longtext("article");
+
+$table->time("bookingtime");
+$table->date("created_at");
+$table->year("birthyear");
+
+$table->timestamps();//system auto created_at,updated_at
+$table->timestamp("action");//custom
+
+$table->decimal("amount",precision=10,scale=2);
+$table->float("measure",8,2);
+
+$table->set('flavors',['strawberry','vanilla']);
+$table->enum('payment',['visa','mpu','cod','kay','wave']);
+
+$table->json("multiphones");
+
+$table->ipAddress('visitor');
+$table->macAddress('device');
+
+
+-----------------------------------------------------------------
+
+=>check migrate status 
+php artisan migrate:status
+
+=>migrate table to database 
+php artisan migrate 
+
+=>check before migrate by pretend 
+php artisan migrate --pretend 
+
+=>Undo Migration 
+php artisan migrate:rollback (a shi pe thar table ko delete chin)
+
+=>check before rollback by pretend 
+php artisan migrate:rollback  --pretend 
+
+=>undo migration by step 
+php artisan migrate:rollback --step=2
+
+=>Delete all tables (auto rollback)
+php artisan migrate:reset 
+
+=>Delete all datas (auto rollback / auto migrate)
+php artisan migrate:refresh 
+
+=>Delete all datas (auto rollback / auto migrate) roll back the last five migrations 
+php artisan migrate:refresh  --step = 5
+
+---------------------------------------------------------
+
+=>Add new columns 
+php artisan make:migration add_city_to_shopper_table --table=shoppers;
+
+
+=>Sort Column 
+$table->string("city")->After("phone");
+
+=>down()(for rollback) 
+$table->dropColumn("city");
+
+=>drop column 
+php artisan make:migration remove_age_to_students_table --table=students 
+=>up()(migration)
+$table ->dropcolumn("age");
+=>down()(rollback)
+$table ->int("age");
+
+=>Rename column  renameColumn(from,to)
+php artisan make:migration rename_students_column --table=students 
+=>up()(migration)
+$table->renameColumn('phonenumber','phone');
+$table->renameColumn('address','city');
+=>down()(rollback)
+$table->renameColumn('phone','phonenumber');
+$table->renameColumn('city','address');
+
+------------------------------------------------------------------
+
+
+
+

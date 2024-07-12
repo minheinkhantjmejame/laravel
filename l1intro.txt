@@ -1,0 +1,73 @@
+1. classic php
+2. project experience
+
+=>required applications 
+php 
+composer 
+mysql 
+webserver 
+npm 
+node.js
+
+acc + mang + 
+
+
+laravel
+mvc
+crud
+pro + classic php + features
+
+=>website
+https://laravel.com
+
+=>download laravel
+composer create-project laravel/laravel projectname
+
+=> MVC framework(Model,View,Controller)
+
+= Model 
+
+it's work with database(Select, Insert, Update,Delete)
+communicate with the controller 
+
+= View 
+A view is that part of the application that represents that presentation of data HTML CSS codes for enduser see.
+= Controller
+The controller mediates between models and views.
+The controller receives input form the user, process the request(GET, POST,PUT, DELETE);
+
+-------------------------------------------------------------------------------------------
+=>Folder and File Structures
+
+app > Models 
+database > migrations
+
+resources > views
+
+app > Http > Controllers 
+
+
+public > (for image / custom css / custom js)
+
+routes > web.php (or) routes > api.php 
+
+.env
+
+_________________________________________________________________
+
+=> Run Project 
+php artisan serve 
+
+=> Stop Project (503 error)
+php artisan down 
+
+=>Stop project (by redirect)
+php artisan down -- redirect = /https://gooogle.com 
+
+=>Resume Project 
+www.dlt.com 
+php artisan up
+
+
+
+
